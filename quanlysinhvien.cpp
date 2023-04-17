@@ -14,6 +14,7 @@ struct SinhVien {
 };
  
 typedef SinhVien SV;
+void pressAnyKey();
 int idLonNhat(SV a[], int n); 
 void printLine(int n);
 void nhapThongTinSV(SV &sv, int id);
@@ -22,9 +23,8 @@ int xoaTheoID(SV a[], int id, int n);
 void timKiemTheoTen(SV a[], char ten[], int n);
 void showStudent(SV a[], int n);
 int docFile(SV a[], char fileName[]);
-void ghiFile(SV a[], int n, char fileName[]);
-void pressAnyKey();
- 
+void ghiFile(SV a[], int n, char fileName[]); 
+
 int main() {
     int key;
     char fileName[] = "sinhvien.txt";
@@ -61,7 +61,7 @@ int main() {
                     cout << "\n3. Xoa sinh vien.";
                     cout << "\n Nhap ID: "; cin >> id;
                     if (xoaTheoID(arraySV, id, soluongSV) == 1) {
-                        printf("\nSinh vien co id = %d da bi xoa.", &id);
+                        printf("\nSinh vien co id = %d da bi xoa.", id);
                         soluongSV--;
                     }
                 }else{
@@ -71,7 +71,7 @@ int main() {
                 break;
             case 3:
                 if(soluongSV > 0) {
-                    cout << "\n4. Tim kiem sinh vien theo ten.";
+                    cout << "\n3. Tim kiem sinh vien theo ten.";
                     char strTen[30];
                     cout << "\nNhap ten de tim kiem: "; fflush(stdin); gets(strTen);
                     timKiemTheoTen(arraySV, strTen, soluongSV);
@@ -206,5 +206,5 @@ void printLine(int n) {
 void pressAnyKey() {
     cout << "\n\nBam phim bat ky de tiep tuc...";
     getch();
-    system("cls");
+    // system("cls");
 }
